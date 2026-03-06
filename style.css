@@ -168,3 +168,179 @@ body {
     margin-bottom: 15px;
     display: block;
 }
+
+.dress-code-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.dress-code-icons i {
+    font-size: 2.5rem; /* Los hacemos un poco más grandes para que luzcan */
+    color: var(--gold);
+}
+
+.protocol-item small {
+    display: block;
+    margin-top: 5px;
+    color: var(--text-dark);
+    font-style: italic;
+    font-size: 0.75rem;
+}
+
+.welcome-message {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.script-font {
+    font-family: 'Great Vibes', cursive; /* Asegúrate de tener esta fuente en tu HTML */
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.family-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--bg-cream);
+}
+
+.family-group h4 {
+    color: var(--navy);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.timeline {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-left: 2px solid var(--gold);
+    margin-left: 30px;
+}
+
+.time-item {
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.time-item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.time {
+    font-weight: bold;
+    display: block;
+    color: var(--navy);
+}
+
+/* Forzar visibilidad en Secciones de Texto (Padres, Itinerario y Bienvenida) */
+.welcome-message, .family-section, .itinerary-section {
+    color: #1a1a1a !important; /* Un gris casi negro para máxima lectura */
+}
+
+.welcome-message h2, .welcome-message p {
+    color: var(--navy) !important;
+}
+
+.family-group h4 {
+    color: var(--gold) !important; /* Dorado para los títulos de Padres/Padrinos */
+    font-weight: bold;
+}
+
+.family-group p {
+    color: #333 !important;
+    line-height: 1.6;
+}
+
+.time-item .time {
+    color: var(--navy) !important;
+    font-size: 1.1rem;
+}
+
+.time-item .event {
+    color: #444 !important;
+    font-weight: 500;
+}
+
+.itinerary-card {
+    margin: 20px;
+    padding: 30px 15px !important;
+    background: #ffffff !important;
+}
+
+.timeline {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* La línea vertical central */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--gold);
+    top: 0;
+    bottom: 0;
+    left: 20px; /* Alineada con los iconos */
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    color: var(--navy);
+    font-size: 0.9rem;
+}
+
+.timeline-content {
+    padding-left: 10px;
+    text-align: left;
+}
+
+.timeline-content .time {
+    font-weight: bold;
+    color: var(--navy) !important;
+    display: block;
+    font-size: 1rem;
+}
+
+.timeline-content .event {
+    color: #333 !important;
+    margin: 0;
+    font-size: 0.9rem;
+}
