@@ -15,6 +15,28 @@ body {
     justify-content: center;
 }
 
+h1.title-quince { /* Asumiremos que le diste la clase 'title-quince' */
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem; /* Tamaño grande para destacar */
+    color: var(--gold); /* Usamos tu variable de color dorado */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px; /* Reducimos espacio para que la foto suba */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Sombra suave para dar profundidad */
+}
+
+.title-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.title-container i {
+    font-size: 1.5rem;
+    color: var(--gold);
+    display: block; /* Para que la corona esté arriba del texto */
+    margin-bottom: -15px; /* Ajuste para que se vea integrado con el texto */
+}
+
 .main-container {
     width: 100%;
     max-width: 450px;
