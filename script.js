@@ -10,7 +10,7 @@ if (btnConfirmar) { // Agregamos esta seguridad (Null Check)
             return; 
         }
 
-        const webhookURL = 'TU_URL_AQUÍ'; 
+        const webhookURL = "https://script.google.com/macros/s/AKfycbzIcTbO5NOAgXlvfdZDumX4Xrj4RtLfhthcZloFKCZgkQrmlm0VE5uGCjGjAQU6F-gc/exec";
         const datos = {
             nombre: nombreInvitado.trim(),
             asistencia: "Confirmado",
