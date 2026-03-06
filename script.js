@@ -1,23 +1,32 @@
-btnConfirmar.addEventListener('click', async () => {
-    const nombreInvitado = prompt("Por favor, ingresa tu nombre completo:");
+// REVISA QUE TENGA LA PALABRA 'const' AL PRINCIPIO
+const btnConfirmar = document.querySelector('.btn-rsvp');
 
-    // VALIDACIÓN: .trim() elimina espacios vacíos al inicio y al final
-    if (!nombreInvitado || nombreInvitado.trim() === "") {
-        alert("¡Ups! El nombre es obligatorio para confirmar tu asistencia.");
-        return; // Detiene la ejecución: no se ejecuta el fetch
-    }
+if (btnConfirmar) { // Agregamos esta seguridad (Null Check)
+    btnConfirmar.addEventListener('click', async () => {
+        const nombreInvitado = prompt("Por favor, ingresa tu nombre completo:");
 
-    const webhookURL = "https://script.google.com/macros/s/AKfycbzIcTbO5NOAgXlvfdZDumX4Xrj4RtLfhthcZloFKCZgkQrmlm0VE5uGCjGjAQU6F-gc/exec";
-    const datos = {
-        nombre: nombreInvitado.trim(), // Enviamos el nombre limpio
-        asistencia: "Confirmado",
-        fecha: new Date().toLocaleString()
-    };
+        if (!nombreInvitado || nombreInvitado.trim() === "") {
+            alert("El nombre es necesario para la confirmación.");
+            return; 
+        }
 
-    try {
-        // ... aquí va tu código fetch que ya funciona ...
-        alert("¡Gracias " + nombreInvitado + "! Registro exitoso.");
-    } catch (error) {
-        console.error("Error:", error);
-    }
-});
+        const webhookURL = 'TU_URL_AQUÍ'; 
+        const datos = {
+            nombre: nombreInvitado.trim(),
+            asistencia: "Confirmado",
+            fecha: new Date().toLocaleString()
+        };
+
+        try {
+            await fetch(webhookURL, {
+                method: 'POST',
+                mode: 'no-cors', 
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datos)
+            });
+            alert("¡Listo " + nombreInvitado + "! Tu asistencia ha sido registrada.");
+        } catch (error) {
+            alert("Error de conexión.");
+        }
+    });
+}
