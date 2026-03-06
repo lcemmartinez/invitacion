@@ -1,4 +1,37 @@
 const btnConfirmar = document.querySelector('.btn-rsvp');
+// Asegúrate de que la fecha sea futura (2026 como en tu meta de ser papá)
+const fechaEvento = new Date("Oct 17, 2026 18:00:00").getTime();
+
+function updateCountdown() {
+    const ahora = new Date().getTime();
+    const distancia = fechaEvento - ahora;
+
+    const divCountdown = document.getElementById("countdown");
+    
+    // Si el div no existe en el HTML, el script se detendría aquí
+    if (!divCountdown) return; 
+
+    if (distancia < 0) {
+        divCountdown.innerHTML = "¡LLEGÓ EL MOMENTO!";
+        return;
+    }
+
+    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+    divCountdown.innerHTML = `
+        <div class="circle-item"><span class="circle-num">${dias}</span><span class="circle-label">DÍAS</span></div>
+        <div class="circle-item"><span class="circle-num">${horas}</span><span class="circle-label">HRS</span></div>
+        <div class="circle-item"><span class="circle-num">${minutos}</span><span class="circle-label">MIN</span></div>
+        <div class="circle-item"><span class="circle-num">${segundos}</span><span class="circle-label">SEG</span></div>
+    `;
+}
+
+// Ejecutar cada segundo
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
 if (btnConfirmar) {
     btnConfirmar.addEventListener('click', async () => {

@@ -145,3 +145,26 @@ body {
     display: block;
     filter: grayscale(20%) contrast(90%); /* Opcional: para que combine con el estilo elegante */
 }
+
+/* Forzar que el texto sea legible en las tarjetas blancas */
+.location-card h4, .protocol-item h4 {
+    color: var(--navy) !important; /* El azul marino para los títulos */
+    font-family: var(--font-serif);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.location-card p, .protocol-item p {
+    color: var(--text-dark) !important; /* Un gris muy oscuro o negro para los párrafos */
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 5px 0;
+}
+
+/* Estilo para los iconos dentro de estas tarjetas */
+.location-card .icon-gold, .protocol-item .icon-gold {
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    display: block;
+}
