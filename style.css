@@ -383,20 +383,10 @@ h1.title-quince { /* Asumiremos que le diste la clase 'title-quince' */
     font-size: 0.9rem;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-.reveal {
-    animation: fadeInUp 1.2s ease-out forwards;
-}
+
+
+
 
 .btn-floating {
     position: fixed;
@@ -415,15 +405,27 @@ h1.title-quince { /* Asumiremos que le diste la clase 'title-quince' */
 .playing { animation: pulse 2s infinite; }
 @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-/* Estado inicial: oculto y un poco más abajo */
+/* --- SECCIÓN DE ANIMACIONES REPARADA --- */
+
+/* 1. Estado base: Todos los elementos 'reveal' empiezan invisibles */
 .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease-out !important;
+    visibility: hidden !important;
 }
 
-/* Estado cuando la sección entra en pantalla */
+/* 2. Estado activo: El JS agregará esta clase cuando lleguemos con el scroll */
 .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
 }
+
+/* 3. Animación extra para el botón de música (opcional) */
+@keyframes pulse { 
+    0% { transform: scale(1); } 
+    50% { transform: scale(1.1); } 
+    100% { transform: scale(1); } 
+}
+.playing { animation: pulse 2s infinite; }
