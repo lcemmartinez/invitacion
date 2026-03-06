@@ -1,10 +1,8 @@
-/* Paleta de colores de la imagen */
 :root {
-    --bg-cream: #f8f4ed; /* Fondo crema muy claro */
-    --gold: #c6a15c;      /* Oro cepillado */
-    --navy: #151e3a;      /* Azul marino profundo */
+    --bg-cream: #f8f4ed;
+    --gold: #c6a15c;
+    --navy: #151e3a;
     --text-dark: #333333;
-    --text-light: #ffffff;
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Montserrat', sans-serif;
 }
@@ -12,248 +10,87 @@
 body {
     margin: 0;
     font-family: var(--font-sans);
-    background-color: #f0f0f0; /* Un gris neutro para el fondo del navegador */
+    background-color: #e0e0e0;
     display: flex;
     justify-content: center;
-    color: var(--text-dark);
 }
 
 .main-container {
     width: 100%;
-    max-width: 450px; /* Ancho de un teléfono moderno */
+    max-width: 450px;
     background-color: var(--bg-cream);
-    /* Puedes añadir assets/images/pattern.png aquí como background-image sutil */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 /* HEADER */
-.header {
-    text-align: center;
-    padding: 30px 10px;
+.header { text-align: center; padding: 30px 10px; }
+.header-prefix { font-family: var(--font-serif); font-size: 1.2rem; color: var(--gold); margin: 0; }
+.header-name { font-family: var(--font-serif); font-size: 2rem; color: var(--navy); margin: 5px 0 0 0; }
+
+/* CARRUSEL REPARADO */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
 }
 
-.header-prefix {
-    font-family: var(--font-serif);
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: var(--gold);
-    margin: 0 0 5px 0;
+.carousel-inner {
+    display: flex; /* Alinea fotos horizontalmente */
+    overflow-x: auto; /* Permite scroll manual */
+    scroll-snap-type: x mandatory; /* Ajuste magnético */
+    gap: 15px;
+    padding: 0 40px;
+    scrollbar-width: none; /* Oculta scroll en Firefox */
 }
 
-.header-name {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    color: var(--navy);
-    margin: 0;
-}
+.carousel-inner::-webkit-scrollbar { display: none; } /* Oculta scroll en Chrome/Safari */
 
-/* FOTO */
-.photo-section {
-    padding: 0 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.photo-frame {
-    width: 90%;
-    position: relative;
+.card {
+    flex: 0 0 100%; /* Cada foto toma todo el ancho disponible */
+    scroll-snap-align: center;
+    border-radius: 10px;
+    overflow: hidden;
     border: 3px solid white;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.main-photo {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* DETALLES (Sección Azul Marino) */
-.details-section {
-    background-color: var(--navy);
-    color: var(--text-light);
-    padding: 40px 20px;
-    margin-top: 20px;
-}
-
-.event-date {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    text-align: center;
-    color: var(--gold);
-    margin-top: 0;
-}
-
-.event-info {
-    display: flex;
-    justify-content: space-around;
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-}
-
-.icon-gold {
-    color: var(--gold);
-    font-size: 1.5rem;
-}
-
-/* CUENTA REGRESIVA (Círculos) */
-.countdown-container {
-    text-align: center;
-    margin-top: 35px;
-}
-
-.countdown-container h4 {
-    font-size: 0.9rem;
-    color: var(--gold);
-    margin-bottom: 15px;
-}
-
-.countdown-circles {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.circle-item {
-    width: 60px;
-    height: 60px;
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.circle-num {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--text-light);
-}
-
-.circle-label {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    color: var(--gold);
-}
-
-/* ACCIONES (Tarjetas Elevadas) */
-.actions-section {
-    padding: 30px 20px;
-    background-color: var(--bg-cream);
-}
-
-.action-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    text-align: center;
-}
-
-.action-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.btn-rsvp {
-    background: linear-gradient(145deg, #ffffff, #f1eae0);
-    border: 1px solid var(--gold);
-    color: var(--navy);
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.btn-gift {
-    background: transparent;
-    border: none;
-    color: var(--navy);
-    font-size: 0.9rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-}
-
-/* FOOTER */
-.footer {
-    background-color: var(--navy);
-    color: var(--text-light);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-}
-
-.footer-left {
-    color: var(--gold);
-}
-
-.footer-right span {
-    margin-left: 10px;
-}
-
-/* Contenedor principal del carrusel */
-.carousel {
-    width: 100%;
-    overflow: hidden; /* Oculta lo que se sale del cuadro */
-    padding: 20px 0;
-    background-color: var(--bg-cream);
-}
-
-/* Contenedor de las imágenes con scroll horizontal suave */
-.carousel-inner {
-    display: flex;
-    overflow-x: auto; /* Permite deslizar con el dedo en el móvil */
-    scroll-snap-type: x mandatory; /* Hace que las fotos "encajen" al centrarse */
-    scroll-behavior: smooth;
-    gap: 15px;
-    padding: 0 20px;
-    -webkit-overflow-scrolling: touch; /* Suavidad extra en iPhone */
-}
-
-/* Ocultar la barra de desplazamiento para que se vea más limpio */
-.carousel-inner::-webkit-scrollbar {
-    display: none;
-}
-
-/* Estilo de cada tarjeta de foto */
-.card {
-    flex: 0 0 80%; /* Cada foto ocupa el 80% del ancho para que se asome la siguiente */
-    scroll-snap-align: center; /* La foto se detiene justo al centro */
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    border: 2px solid var(--gold); /* Marco dorado delgado */
-    transition: transform 0.3s ease;
-}
-
 .card img {
     width: 100%;
-    height: 400px; /* Altura fija para que todas se vean iguales */
-    object-fit: cover; /* Ajusta la foto sin deformarla */
-    display: block;
-    filter: sepia(20%); /* Un toque vintage que combina con el Oro Rosa */
+    height: 450px;
+    object-fit: cover;
+    filter: grayscale(100%);
 }
 
-/* Efecto visual al pasar el mouse (en computadoras) */
-.card:hover {
-    transform: scale(1.02);
+/* DETALLES AZULES */
+.details-section {
+    background-color: var(--navy);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
 }
+
+.event-date { color: var(--gold); font-family: var(--font-serif); margin-bottom: 25px; }
+
+.event-info { display: flex; justify-content: space-around; margin-bottom: 30px; }
+
+.info-item { font-size: 0.8rem; }
+.icon-gold { color: var(--gold); font-size: 1.5rem; margin-bottom: 5px; }
+
+/* CÍRCULOS DEL CONTADOR */
+.countdown-circles { display: flex; justify-content: center; gap: 10px; }
+.circle-item {
+    width: 65px; height: 65px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.circle-num { font-size: 1.2rem; font-weight: 600; color: white; }
+.circle-label { font-size: 0.5rem; color: var(--gold); }
+
+/* BOTONES */
+.actions-section { padding: 30px 20px; }
+.action-card { background: white; padding: 20px; border-radius: 10px; margin-bottom: 15px; text-align: center; }
+.btn-rsvp { background: var(--bg-cream); border: 1px solid var(--gold); padding: 10px 25px; border-radius: 20px; cursor: pointer; }
+.btn-gift { background: none; border: none; color: var(--navy); cursor: pointer; font-weight: 600; }
+
+.footer { background: var(--navy); color: white; padding: 15px; display: flex; justify-content: space-between; font-size: 0.7rem; }
