@@ -1,26 +1,32 @@
-const fechaEvento = new Date("Oct 17, 2026 18:00:00").getTime();
+// Seleccionamos el botón
+const btnConfirmar = document.querySelector('.btn-rsvp');
 
-function updateCountdown() {
-    const ahora = new Date().getTime();
-    const distancia = fechaEvento - ahora;
+btnConfirmar.addEventListener('click', async () => {
+    const nombreInvitado = prompt("Por favor, ingresa tu nombre completo:");
+    
+    if (nombreInvitado) {
+        // La URL que copiaste de tu nodo Webhook en n8n
+        const webhookURL = "https://script.google.com/macros/s/AKfycbzIcTbO5NOAgXlvfdZDumX4Xrj4RtLfhthcZloFKCZgkQrmlm0VE5uGCjGjAQU6F-gc/exec";
 
-    if (distancia < 0) {
-        document.getElementById("countdown").innerHTML = "¡HOY ES EL DÍA!";
-        return;
+        const datos = {
+            nombre: nombreInvitado,
+            asistencia: "Confirmado",
+            fecha: new Date().toLocaleString()
+        };
+        try {
+            await fetch(webhookURL, {
+                method: 'POST',
+                mode: 'no-cors', // Agrega esta línea para evitar errores de seguridad
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datos)
+            });
+        
+            // Como usamos 'no-cors', no podemos leer la respuesta 'ok', 
+            // así que asumimos que se envió si no saltó al catch.
+            alert("¡Gracias! Tu confirmación ha sido enviada.");
+        } catch (error) {
+            console.error("Error al enviar:", error);
+            alert("No se pudo enviar. Revisa tu conexión.");
+        }
     }
-
-    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerHTML = `
-        <div class="circle-item"><span class="circle-num">${dias}</span><span class="circle-label">DÍAS</span></div>
-        <div class="circle-item"><span class="circle-num">${horas}</span><span class="circle-label">HRS</span></div>
-        <div class="circle-item"><span class="circle-num">${minutos}</span><span class="circle-label">MIN</span></div>
-        <div class="circle-item"><span class="circle-num">${segundos}</span><span class="circle-label">SEG</span></div>
-    `;
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
+});
