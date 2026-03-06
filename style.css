@@ -208,3 +208,52 @@ body {
 .footer-right span {
     margin-left: 10px;
 }
+
+/* Contenedor principal del carrusel */
+.carousel {
+    width: 100%;
+    overflow: hidden; /* Oculta lo que se sale del cuadro */
+    padding: 20px 0;
+    background-color: var(--bg-cream);
+}
+
+/* Contenedor de las imágenes con scroll horizontal suave */
+.carousel-inner {
+    display: flex;
+    overflow-x: auto; /* Permite deslizar con el dedo en el móvil */
+    scroll-snap-type: x mandatory; /* Hace que las fotos "encajen" al centrarse */
+    scroll-behavior: smooth;
+    gap: 15px;
+    padding: 0 20px;
+    -webkit-overflow-scrolling: touch; /* Suavidad extra en iPhone */
+}
+
+/* Ocultar la barra de desplazamiento para que se vea más limpio */
+.carousel-inner::-webkit-scrollbar {
+    display: none;
+}
+
+/* Estilo de cada tarjeta de foto */
+.card {
+    flex: 0 0 80%; /* Cada foto ocupa el 80% del ancho para que se asome la siguiente */
+    scroll-snap-align: center; /* La foto se detiene justo al centro */
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border: 2px solid var(--gold); /* Marco dorado delgado */
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 400px; /* Altura fija para que todas se vean iguales */
+    object-fit: cover; /* Ajusta la foto sin deformarla */
+    display: block;
+    filter: sepia(20%); /* Un toque vintage que combina con el Oro Rosa */
+}
+
+/* Efecto visual al pasar el mouse (en computadoras) */
+.card:hover {
+    transform: scale(1.02);
+}
