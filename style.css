@@ -79,8 +79,8 @@ body {
 /* CÍRCULOS DEL CONTADOR */
 .countdown-circles { display: flex; justify-content: center; gap: 10px; }
 .circle-item {
-    width: 65px; height: 65px;
-    border: 1px solid var(--gold);
+    width: 85px; height: 85px;
+    border: 5px solid var(--gold);
     border-radius: 50%;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
