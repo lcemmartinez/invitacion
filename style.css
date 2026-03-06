@@ -94,3 +94,54 @@ body {
 .btn-gift { background: none; border: none; color: var(--navy); cursor: pointer; font-weight: 600; }
 
 .footer { background: var(--navy); color: white; padding: 15px; display: flex; justify-content: space-between; font-size: 0.7rem; }
+
+.section-title {
+    text-align: center;
+    color: var(--navy);
+    font-family: var(--font-serif);
+    margin-top: 40px;
+}
+
+.location-section, .protocol-section {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.location-card, .protocol-item {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.btn-map {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    background-color: var(--navy);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: background 0.3s;
+}
+
+.btn-map:hover {
+    background-color: var(--gold);
+}
+
+.map-container {
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden; /* Esto hace que las esquinas del mapa se vean redondeadas */
+    border: 2px solid var(--bg-cream);
+}
+
+.map-container iframe {
+    display: block;
+    filter: grayscale(20%) contrast(90%); /* Opcional: para que combine con el estilo elegante */
+}
