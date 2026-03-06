@@ -79,3 +79,21 @@ if (btnConfirmar) {
 } else {
     console.error("Error: No se encontró el botón con la clase .btn-rsvp");
 }
+
+const musicBtn = document.getElementById('music-btn');
+const music = document.getElementById('background-music');
+const musicIcon = document.getElementById('music-icon');
+
+musicBtn.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+        musicIcon.classList.remove('fa-music');
+        musicIcon.classList.add('fa-pause');
+        musicBtn.classList.add('playing');
+    } else {
+        music.pause();
+        musicIcon.classList.remove('fa-pause');
+        musicIcon.classList.add('fa-music');
+        musicBtn.classList.remove('playing');
+    }
+});
