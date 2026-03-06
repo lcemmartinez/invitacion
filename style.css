@@ -156,6 +156,22 @@ h1.title-quince { /* Asumiremos que le diste la clase 'title-quince' */
     background-color: var(--gold);
 }
 
+.btn-rsvp:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* Animación de pulso para el botón de música */
+.playing {
+    animation: pulse-gold 2s infinite;
+}
+
+@keyframes pulse-gold {
+    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
 .map-container {
     margin-top: 15px;
     border-radius: 10px;
@@ -367,6 +383,21 @@ h1.title-quince { /* Asumiremos que le diste la clase 'title-quince' */
     font-size: 0.9rem;
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
 .btn-floating {
     position: fixed;
     bottom: 20px;
@@ -383,3 +414,16 @@ h1.title-quince { /* Asumiremos que le diste la clase 'title-quince' */
 }
 .playing { animation: pulse 2s infinite; }
 @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+/* Estado inicial: oculto y un poco más abajo */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* Estado cuando la sección entra en pantalla */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -27,6 +27,9 @@ function updateCountdown() {
         <div class="circle-item"><span class="circle-num">${minutos}</span><span class="circle-label">MIN</span></div>
         <div class="circle-item"><span class="circle-num">${segundos}</span><span class="circle-label">SEG</span></div>
     `;
+    // Agrega esta línea justo después de actualizar el innerHTML
+divCountdown.classList.add('tick');
+setTimeout(() => divCountdown.classList.remove('tick'), 500);
 }
 
 // Ejecutar cada segundo
@@ -97,3 +100,23 @@ musicBtn.addEventListener('click', () => {
         musicBtn.classList.remove('playing');
     }
 });
+
+function revealSections() {
+    const reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach((section) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = section.getBoundingClientRect().top;
+        const elementVisible = 150; // Distancia antes de que se active
+
+        if (elementTop < windowHeight - elementVisible) {
+            section.classList.add("active");
+        }
+    });
+}
+
+// Escuchar el evento de scroll
+window.addEventListener("scroll", revealSections);
+
+// Ejecutar una vez al cargar por si hay elementos visibles desde el inicio
+revealSections();
