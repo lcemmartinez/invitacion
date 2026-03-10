@@ -1,11 +1,14 @@
 :root {
-    --bg-cream: #f8f4ed;
-    --gold: #c6a15c;
+    --gold: #c6a15c; /* Este es el color que cambiaremos */
     --navy: #151e3a;
-    --text-dark: #333333;
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Montserrat', sans-serif;
+    --bg-cream: #f8f4ed;
 }
+
+/* Asegúrate de que tus elementos usen la variable */
+.icon-gold { color: var(--gold); }
+.btn-map:hover { background-color: var(--gold); }
+.circle-item { border: 5px solid var(--gold); }
+.timeline::after { background-color: var(--gold); }
 
 body {
     margin: 0;
@@ -321,6 +324,8 @@ h1.title-quince { /* Asumiremos que le diste la clase 'title-quince' */
     background: #ffffff !important;
 }
 
+
+
 .timeline {
     position: relative;
     max-width: 300px;
@@ -429,3 +434,4 @@ h1.title-quince { /* Asumiremos que le diste la clase 'title-quince' */
     100% { transform: scale(1); } 
 }
 .playing { animation: pulse 2s infinite; }
+
