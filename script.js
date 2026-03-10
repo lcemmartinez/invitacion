@@ -6,6 +6,12 @@ const CONFIG={
     fechaa: "miércoles,25 de Noviembre ,2026",
     musicaURL: "assets/music/cancion.mp3",
     colorPrincipal: "#FFB6C1",//color principal
+    direccionFiesta: "Calle privada xaltonac #423",
+    nombreSalon: "JARDÍN LUNA",
+    colonia: "COLONIA 3 DE MAYO",
+    papas: "Juan Pérez y María García",
+    padrinos: "Pedro Armendáriz y Lucía Méndez",
+    mensajeBienvenida: "¡Estás invitado a celebrar mi baby shower!",
     mapaEmbedURL:"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15081.60543661906!2d-98.1666352!3d19.0900406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1772831108595!5m2!1ses!2smx",
     googleSheetURL: "https://script.google.com/macros/s/AKfycbzIcTbO5NOAgXlvfdZDumX4Xrj4RtLfhthcZloFKCZgkQrmlm0VE5uGCjGjAQU6F-gc/exec",
     itinerario:[
@@ -85,9 +91,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const elEvento = document.getElementById('evento-tipo');
     const laFecha = document.getElementById('event-date');
     
+document.querySelector('.location-card p').innerText = CONFIG.direccionFiesta;
+document.querySelector('.location-card h4').innerText = `RECEPCIÓN: ${CONFIG.colonia}`;
+document.querySelector('.info-item span').innerText = CONFIG.nombreSalon; // El del icono de mapa
+document.querySelector('.guest-invite').innerText = CONFIG.mensajeBienvenida;
+
+
     if(elNombre) elNombre.innerText = CONFIG.nombreFestejado;
     if(elEvento) elEvento.innerText = CONFIG.nombreEvento;
     if(laFecha) laFecha.innerText = CONFIG.fechaa;
+
+    // Para los Padres y Padrinos (buscamos por el orden de los grupos)
+const gruposFamilia = document.querySelectorAll('.family-group p');
+if(gruposFamilia.length >= 2) {
+    gruposFamilia[0].innerHTML = CONFIG.papas.replace(" y ", "<br>");
+    gruposFamilia[1].innerHTML = CONFIG.padrinos.replace(" y ", "<br>");
+}
 
     // --- APLICAR COLOR PRINCIPAL DINÁMICAMENTE ---
 if (CONFIG.colorPrincipal) {
